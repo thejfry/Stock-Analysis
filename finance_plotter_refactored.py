@@ -23,7 +23,7 @@ class Ticker:
         self.data.set_index('Date', inplace=True)
 
     def load_data(self):
-        self.data = pd.read_csv('finance backtesting data - ' + self.name + '.csv')
+        self.data = pd.read_csv('./backtesting_data/finance backtesting data - ' + self.name + '.csv')
         self.trim_columns()
         self.reformat_date()
 
@@ -42,7 +42,7 @@ class Ticker:
             'x': self.data[startDate:endDate].index,
             'y': self.data[col],
             'name': col,
-        } for col in plot_cols], filename="../plots/" + self.name + '_sma_plot.html')
+        } for col in plot_cols], filename="./plots/" + self.name + '_sma_plot.html')
 
     # def annotate_plot(self, startDate, endDate, plot_cols):
     #     fig = go.Figure()
