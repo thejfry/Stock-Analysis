@@ -25,6 +25,11 @@ class Ticker:
         self.trim_columns()
         self.reformat_date()
 
+    def sma_strategy(self, means, startDate, endDate):
+        for m in means:
+            self.compute_sma(m)
+        self.plot_sma(startDate, endDate)
+
     def compute_sma(self, length):
         self.data['SMA ' + str(length)] = self.data['Close'].rolling(window=length).mean()
 

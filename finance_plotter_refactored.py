@@ -16,18 +16,14 @@ def main():
     # Specify tickers to analyze
     tickers = ['SPY']
 
-    for tick in tickers:
+    for t in tickers:
         # # Collect ticker data
-        current_tick = Ticker(tick)
+        current_tick = Ticker(t)
         current_tick.load_data()
 
-        # # compute moving averages
+        # # assess simple moving average strategy
         means = [8, 25, 55]
-        for m in means:
-            current_tick.compute_sma(m)
-
-        # # plot closing price with moving averages
-        current_tick.plot_sma(startDate, endDate)
+        current_tick.sma_strategy(means, startDate, endDate)
 
 
 if __name__ == "__main__":
