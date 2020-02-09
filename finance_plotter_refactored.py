@@ -25,6 +25,9 @@ def main():
         means = [8, 25, 55]
         current_tick.sma_strategy(means, startDate, endDate)
 
+        # # assess mean reversion strategy
+        current_tick.mr_strategy(startDate, endDate)
+
 
 if __name__ == "__main__":
     print('program start\n')
