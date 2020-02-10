@@ -43,10 +43,11 @@ class Ticker:
         self.data['MR minus'] = self.data['MR mean'] - self.data['Close'].rolling(window=length).std()*2
 
     def plot_strategy(self, strategy, startDate, endDate):
-        plot_cols = ['Close']
+        plot_cols = []
         for col in self.data.columns:
             if strategy in col:
                 plot_cols.append(col)
+        plot_cols.append('Close')
         self.show_plot(strategy, plot_cols , startDate, endDate)
 
     def show_plot(self, strategy, plot_cols, startDate, endDate):
